@@ -96,3 +96,24 @@ font-size: 115%;
 p{
 font-size: 95%;
 }
+
+/* ===== Простий футер ===== */
+.site-footer {
+    padding: 30px 0;
+    margin-top: 50px;
+    border-top: 1px solid #dee2e6;
+    background-color: #fff;
+    color: #495057;
+    font-size: 0.95rem;
+}
+
+.site-footer a {
+    color: #eb5a1e;
+    text-decoration: none;
+    transition: opacity 0.2s ease;
+}
+
+.site-footer a:hover {
+    opacity: 0.8;
+    text-decoration: underline;
+}

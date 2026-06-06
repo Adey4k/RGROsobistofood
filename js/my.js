@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     ToogleCartStatus();
+    calcCartPrice();
     const modal = document.getElementById('order-modal');
     const orderButton = document.querySelector('#order-form .btn-primary'); // Кнопка "Замовити"
     const closeModal = modal.querySelector('.close');
@@ -15,9 +16,9 @@ document.addEventListener('DOMContentLoaded', function () {
     
         cartItems.forEach(item => {
             const title = item.querySelector('.cart-item__title').innerText;
-            const counter = parseInt(item.querySelector('[data-counter]').innerText);
+            const counter = parseInt(item.querySelector('[data-counter]').value || item.querySelector('[data-counter]').innerText);
             const pricePerItem = parseInt(item.querySelector('.price__currency').innerText.replace(/\D/g, ''));
-            const totalItemPrice = pricePerItem * counter; // Рассчитываем итоговую цену для позиции
+            const totalItemPrice = pricePerItem * counter; // Розраховуємо підсумкову ціну для позиції
     
             orderHTML += `
                 <li class="list-group-item d-flex justify-content-between align-items-center">
@@ -52,16 +53,15 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
-// Відправка форми
-modal.querySelector('form').addEventListener('submit', function (event) {
-    event.preventDefault(); 
-    alert('Замовлення прийнято! Дякуємо!');
-    const orderForm = modal.querySelector('form'); 
-    orderForm.reset(); 
-    modal.style.display = 'none'; 
-    cartWrapper.innerHTML = '';
-    ToogleCartStatus();
-    const totalPrice = document.querySelector('.total-price');
-    totalPrice.innerText = '0';
-});
+    // Відправка форми
+    modal.querySelector('form').addEventListener('submit', function (event) {
+        event.preventDefault(); 
+        alert('Замовлення прийнято! Дякуємо!');
+        const orderForm = modal.querySelector('form'); 
+        orderForm.reset(); 
+        modal.style.display = 'none'; 
+        cartWrapper.innerHTML = '';
+        ToogleCartStatus();
+        calcCartPrice();
+    });
 });

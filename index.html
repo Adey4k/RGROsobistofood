@@ -1,160 +1,305 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="uk">
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 	<title>Особисто</title>
 	<link rel="stylesheet" href="css/bootstrap.css">
 	<link rel="stylesheet" href="css/main.css">
-
 </head>
-
 <body>
 	<div class="container">
 		<header class="d-flex flex-wrap  py-3 mb-4 border-bottom">
-		  <a class="d-flex mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
-			<img src="img/logo.png" alt="Логотип" width="40" height="40" class="me-2">
-			<span class="fs-3 navbar-brand">Особисто</span>
-		  </a>
-	
-		  <ul class="nav nav-pills">
-			<li class="nav-item"><a href="" class="nav-link active" aria-current="page">Замовити</a></li>
-			<li class="nav-item"><a href="info.html" class="nav-link">Про нас</a></li>
-		  </ul>
+			<a class="d-flex mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+				<img src="img/logo.png" alt="Логотип" width="40" height="40" class="me-2">
+				<span class="fs-3 navbar-brand">Особисто</span>
+			</a>
+			<ul class="nav nav-pills">
+				<li class="nav-item"><a href="" class="nav-link active" aria-current="page">Замовити</a></li>
+				<li class="nav-item"><a href="info.html" class="nav-link">Про нас</a></li>
+			</ul>
 		</header>
-	  </div>
-
-
+	</div>
 	<div class="container mb-5">
 		<div class="row">
 			<div class="col-md-8">
-				<div class="row">
-
-					<!-- Рол1 -->
-					<div class="col-md-6">
+				<div class="search-wrapper mb-3">
+					<div class="search-icon">🔍</div>
+					<input type="text" id="product-search" class="search-input" placeholder="Пошук товарів..."
+						autocomplete="off">
+					<button class="search-clear" id="search-clear" title="Очистити" style="display:none;">✕</button>
+				</div>
+				<div class="category-tabs mb-3" id="category-tabs">
+					<button class="cat-tab active" data-cat="all">Усі</button>
+					<button class="cat-tab" data-cat="sushi">Суші</button>
+					<button class="cat-tab" data-cat="pizza">Піца</button>
+					<button class="cat-tab" data-cat="drinks">Напої</button>
+				</div>
+				<div class="row" id="products-row">
+					<div class="col-md-6 product-col" data-category="sushi">
 						<div class="card mb-4" data-id="01">
-							<a href="product01.html">
-							<img class="product-img" src="img/roll/philadelphia.jpg" alt="Зображення товару">
+							<a href="roll/product01.html">
+								<img class="product-img" src="img/roll/philadelphia.jpg" alt="Зображення товару">
 							</a>
 							<div class="card-body text-center">
 								<h4 class="item-title">Філадельфія з лососем</h4>
 								<p><small data-items-in-box class="text-muted">6 шт.</small></p>
-
 								<div class="details-wrapper">
 									<div class="items counter-wrapper">
 										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
 										<div class="items__control" data-action="plus">+</div>
 									</div>
-
 									<div class="price">
 										<div class="price__weight">180г.</div>
 										<div class="price__currency">350 грн.</div>
 									</div>
 								</div>
-
-								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у кошик</button>
-
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
 							</div>
 						</div>
 					</div>
-					<!-- // Рол1 -->
-
-					<!-- Рол2 -->
-					<div class="col-md-6">
+					<div class="col-md-6 product-col" data-category="sushi">
 						<div class="card mb-4" data-id="02">
-							<a href="product02.html">
-							<img class="product-img" src="img/roll/california-tempura.jpg" alt="">
+							<a href="roll/product02.html">
+								<img class="product-img" src="img/roll/california-tempura.jpg" alt="">
 							</a>
 							<div class="card-body text-center">
 								<h4 class="item-title">Банани з сиром</h4>
 								<p><small data-items-in-box class="text-muted">8 шт.</small></p>
-
 								<div class="details-wrapper">
 									<div class="items counter-wrapper">
 										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
 										<div class="items__control" data-action="plus">+</div>
 									</div>
-
 									<div class="price">
 										<div class="price__weight">290г.</div>
 										<div class="price__currency">250 грн.</div>
 									</div>
 								</div>
-
-								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у кошик</button>
-
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
 							</div>
 						</div>
 					</div>
-					<!-- // Рол2 -->
-
-					<!-- Рол3 -->
-					<div class="col-md-6">
+					<div class="col-md-6 product-col" data-category="sushi">
 						<div class="card mb-4" data-id="03">
-							<a href="product03.html">
-							<img class="product-img" src="img/roll/zapech-california.jpg" alt="">
+							<a href="roll/product03.html">
+								<img class="product-img" src="img/roll/zapech-california.jpg" alt="">
 							</a>
 							<div class="card-body text-center">
 								<h4 class="item-title">Запечений ролл з вугрем</h4>
 								<p><small data-items-in-box class="text-muted">6 шт.</small></p>
-
 								<div class="details-wrapper">
 									<div class="items counter-wrapper">
 										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
 										<div class="items__control" data-action="plus">+</div>
 									</div>
-
 									<div class="price">
 										<div class="price__weight">200г.</div>
 										<div class="price__currency">350 грн.</div>
 									</div>
-
 								</div>
-
-								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у кошик</button>
-
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
 							</div>
 						</div>
 					</div>
-					<!-- // Рол3 -->
-
-					<!-- Рол4 -->
-					<div class="col-md-6">
+					<div class="col-md-6 product-col" data-category="sushi">
 						<div class="card mb-4" data-id="04">
-							<a href="product04.html">
-							<img class="product-img" src="img/roll/california-hit.jpg" alt="">
-						</a>
+							<a href="roll/product04.html">
+								<img class="product-img" src="img/roll/california-hit.jpg" alt="">
+							</a>
 							<div class="card-body text-center">
-								<h4 class="item-title">Филадельфія гріль з манго</h4>
+								<h4 class="item-title">Філадельфія гріль з манго</h4>
 								<p><small data-items-in-box class="text-muted">6 шт.</small></p>
-
 								<div class="details-wrapper">
 									<div class="items counter-wrapper">
 										<div class="items__control" data-action="minus">-</div>
-										<div class="items__current" data-counter>1</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
 										<div class="items__control" data-action="plus">+</div>
 									</div>
-
 									<div class="price">
 										<div class="price__weight">250г.</div>
 										<div class="price__currency">300 грн.</div>
 									</div>
-
 								</div>
-
 								<button data-cart type="button" class="btn btn-block btn-outline-warning">
 									+ у кошик
 								</button>
-
 							</div>
 						</div>
 					</div>
-					<!-- // Рол4 -->
-
+					<div class="col-md-6 product-col" data-category="pizza">
+						<div class="card mb-4" data-id="05">
+							<a href="pizza/product05.html">
+								<img class="product-img"
+									src="img/pizza/mediterranean-pizza-on-transparent-background-600w-2675822703.webp"
+									alt="Средиземноморська">
+							</a>
+							<div class="card-body text-center">
+								<h4 class="item-title">Средиземноморська</h4>
+								<p><small data-items-in-box class="text-muted">30 см.</small></p>
+								<div class="details-wrapper">
+									<div class="items counter-wrapper">
+										<div class="items__control" data-action="minus">-</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
+										<div class="items__control" data-action="plus">+</div>
+									</div>
+									<div class="price">
+										<div class="price__weight">450г.</div>
+										<div class="price__currency">280 грн.</div>
+									</div>
+								</div>
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 product-col" data-category="pizza">
+						<div class="card mb-4" data-id="06">
+							<a href="pizza/product06.html">
+								<img class="product-img"
+									src="img/pizza/philly-cheesesteak-pizza-on-transparent-600w-2674983455.webp"
+									alt="Філадельфійська">
+							</a>
+							<div class="card-body text-center">
+								<h4 class="item-title">Філадельфійська</h4>
+								<p><small data-items-in-box class="text-muted">32 см.</small></p>
+								<div class="details-wrapper">
+									<div class="items counter-wrapper">
+										<div class="items__control" data-action="minus">-</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
+										<div class="items__control" data-action="plus">+</div>
+									</div>
+									<div class="price">
+										<div class="price__weight">500г.</div>
+										<div class="price__currency">320 грн.</div>
+									</div>
+								</div>
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 product-col" data-category="pizza">
+						<div class="card mb-4" data-id="09">
+							<a href="pizza/product09.html">
+								<img class="product-img"
+									src="img/pizza/veggie-supreme-pizza-on-transparent-600w-2585446781.webp"
+									alt="Вегетаріанська">
+							</a>
+							<div class="card-body text-center">
+								<h4 class="item-title">Вегетаріанська</h4>
+								<p><small data-items-in-box class="text-muted">30 см.</small></p>
+								<div class="details-wrapper">
+									<div class="items counter-wrapper">
+										<div class="items__control" data-action="minus">-</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
+										<div class="items__control" data-action="plus">+</div>
+									</div>
+									<div class="price">
+										<div class="price__weight">420г.</div>
+										<div class="price__currency">350 грн.</div>
+									</div>
+								</div>
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 product-col" data-category="drinks">
+						<div class="card mb-4" data-id="07">
+							<a href="drinks/product07.html">
+								<img class="product-img" src="img/drinks/Coca-Cola-0.5l.png" alt="Coca-Cola">
+							</a>
+							<div class="card-body text-center">
+								<h4 class="item-title">Coca-Cola</h4>
+								<p><small data-items-in-box class="text-muted">0.5 л.</small></p>
+								<div class="details-wrapper">
+									<div class="items counter-wrapper">
+										<div class="items__control" data-action="minus">-</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
+										<div class="items__control" data-action="plus">+</div>
+									</div>
+									<div class="price">
+										<div class="price__weight">500мл.</div>
+										<div class="price__currency">55 грн.</div>
+									</div>
+								</div>
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 product-col" data-category="drinks">
+						<div class="card mb-4" data-id="08">
+							<a href="drinks/product08.html">
+								<img class="product-img"
+									src="img/drinks/glass-cup-green-tea-isolated-white-background-62660539.webp"
+									alt="Зелений чай">
+							</a>
+							<div class="card-body text-center">
+								<h4 class="item-title">Зелений чай</h4>
+								<p><small data-items-in-box class="text-muted">0.4 л.</small></p>
+								<div class="details-wrapper">
+									<div class="items counter-wrapper">
+										<div class="items__control" data-action="minus">-</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
+										<div class="items__control" data-action="plus">+</div>
+									</div>
+									<div class="price">
+										<div class="price__weight">400мл.</div>
+										<div class="price__currency">45 грн.</div>
+									</div>
+								</div>
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-6 product-col" data-category="drinks">
+						<div class="card mb-4" data-id="11">
+							<a href="drinks/product11.html">
+								<img class="product-img"
+									src="img/drinks/black-tea-glass-cup-wooden-spoon-white-isolated_269543-259.avif"
+									alt="Чорний чай">
+							</a>
+							<div class="card-body text-center">
+								<h4 class="item-title">Чорний чай</h4>
+								<p><small data-items-in-box class="text-muted">0.4 л.</small></p>
+								<div class="details-wrapper">
+									<div class="items counter-wrapper">
+										<div class="items__control" data-action="minus">-</div>
+										<input type="text" inputmode="numeric" maxlength="3" class="items__current"
+											data-counter value="1">
+										<div class="items__control" data-action="plus">+</div>
+									</div>
+									<div class="price">
+										<div class="price__weight">400мл.</div>
+										<div class="price__currency">40 грн.</div>
+									</div>
+								</div>
+								<button data-cart type="button" class="btn btn-block btn-outline-warning">+ у
+									кошик</button>
+							</div>
+						</div>
+					</div>
+					<div class="search-no-results" id="search-no-results">
+						😔 За вашим запитом нічого не знайдено
+					</div>
 				</div>
 			</div>
 			<div class="col-md-4">
@@ -162,7 +307,7 @@
 				<!-- КОШИК -->
 				<div class="card mb-4">
 					<div class="card-body">
-						<h5 class="card-title">Ваше замовлення</h4>
+						<h5 class="card-title">Ваше замовлення</h5>
 						<div data-cart-empty class="alert alert-secondary" role="alert">
 							Кошик порожній
 						</div>
@@ -173,8 +318,10 @@
 
 						<!-- Вартість замовлення -->
 						<div class="cart-total">
-							<p><span class="h5">Доставка:</span> <span class="delivery-cost free">безкоштовна</span> </p>
-							<p><span class="h5">До сплати:</span> <span class="total-price">0</span> <span class="rouble">грн.</span></p>
+							<p><span class="h5">Доставка:</span> <span class="delivery-cost free">безкоштовна</span></p>
+							<p class="delivery-info-text mb-2"><small class="text-muted">Безкоштовна доставка для замовлень від 1000 грн.</small></p>
+							<p><span class="h5">До сплати:</span> <span class="total-price">0</span> <span
+									class="rouble">грн.</span></p>
 						</div>
 						<!-- // Вартість замовлення -->
 
@@ -182,7 +329,7 @@
 
 					<!-- Оформити замовлення -->
 					<div id="order-form" class="card-body border-top">
-							<button type="submit" class="btn btn-primary" disabled>ОФОРМИТИ ЗАМОВЛЕННЯ</button>
+						<button type="submit" class="btn btn-primary" disabled>ОФОРМИТИ ЗАМОВЛЕННЯ</button>
 					</div>
 					<!-- // Оформити замовлення -->
 
@@ -206,7 +353,8 @@
 				</div>
 				<div class="form-group">
 					<label for="customer-phone">Номер телефону:</label>
-					<input type="tel" id="customer-phone" class="form-control" placeholder="Введіть ваш номер телефону" required>
+					<input type="tel" id="customer-phone" class="form-control" placeholder="Введіть ваш номер телефону"
+						required>
 					<input type="checkbox" id="no-call" class="form-check-input">
 					<label for="no-call" class="form-check-label">Не телефонувати мені</label>
 				</div>
@@ -216,13 +364,69 @@
 				</div>
 				<button type="submit" class="btn btn-primary">Підтвердити замовлення</button>
 			</form>
-			
 		</div>
 	</div>
-	
-	<!-- ВАШІ СКРИПТИ -->
-	<script src = "js\my.js"></script>
-	<script src = "js\koshik.js"></script>
-</body>
 
+	<!-- Футер сайту -->
+	<footer class="site-footer">
+		<div class="container text-center">
+			<p class="mb-2"><strong>Доставка їжі «Особисто»</strong></p>
+			<p class="mb-2 text-muted">
+				Телефон: <a href="tel:+380671058837">+38 067 105 88 37</a> &bull; 
+				Email: <a href="mailto:ladikovmax@gmail.com">ladikovmax@gmail.com</a>
+			</p>
+			<p class="mb-2 text-muted">Розрахунково-графічна робота студента 101ТК групи Ладікова Максима</p>
+			<p class="mb-0 text-muted small">&copy; 2026 Особисто. Всі права захищені.</p>
+		</div>
+	</footer>
+
+	<!-- ВАШІ СКРИПТИ -->
+	<script src="js\my.js"></script>
+	<script src="js\koshik.js"></script>
+	<script>
+		(function () {
+			const searchInput = document.getElementById('product-search');
+			const clearBtn = document.getElementById('search-clear');
+			const noResults = document.getElementById('search-no-results');
+			const catTabs = document.querySelectorAll('.cat-tab');
+			const productCols = document.querySelectorAll('.product-col');
+			let activeCategory = 'all';
+			function applyFilters() {
+				const query = searchInput.value.trim().toLowerCase();
+				clearBtn.style.display = query ? 'block' : 'none';
+				let visibleCount = 0;
+				productCols.forEach(function (col) {
+					const cat = col.getAttribute('data-category');
+					const titleEl = col.querySelector('.item-title');
+					if (!titleEl) return;
+					const title = titleEl.textContent.toLowerCase();
+					const catMatch = (activeCategory === 'all') || (cat === activeCategory);
+					const searchMatch = !query || title.includes(query);
+					const visible = catMatch && searchMatch;
+					col.style.display = visible ? '' : 'none';
+					if (visible) visibleCount++;
+				});
+				noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+			}
+
+			// Пошук
+			searchInput.addEventListener('input', applyFilters);
+			clearBtn.addEventListener('click', function () {
+				searchInput.value = '';
+				searchInput.focus();
+				applyFilters();
+			});
+
+			// Категорії
+			catTabs.forEach(function (tab) {
+				tab.addEventListener('click', function () {
+					catTabs.forEach(function (t) { t.classList.remove('active'); });
+					tab.classList.add('active');
+					activeCategory = tab.getAttribute('data-cat');
+					applyFilters();
+				});
+			});
+		})();
+	</script>
+</body>
 </html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Запечений ролл з вугрем — Особисто</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/info.css">
+</head>
+<body>
+	<div class="container">
+		<header class="d-flex flex-wrap  py-3 mb-4 border-bottom">
+		  <a class="d-flex mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+			<img src="../img/logo.png" alt="Логотип" width="40" height="40" class="me-2">
+			<span class="fs-3 navbar-brand">Особисто</span>
+		  </a>
+		  <ul class="nav nav-pills">
+			<li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page">Замовити</a></li>
+			<li class="nav-item"><a href="../info.html" class="nav-link">Про нас</a></li>
+		  </ul>
+		</header>
+	  </div>
+	<div class="container mb-5">
+		<div class="row">
+			<div class="image-container">
+				<img class="product-img-info" src="../img/roll/zapech-california.jpg" alt="Зображення товару">
+			</div>
+			<div class="card mb-3">
+				<h1>Запечений ролл з вугрем</h1>
+				<p class = "main-text-info">
+					<strong>Енергетична цінність (на 100 г):</strong> 260 ккал <br>
+					<strong>Харчова цінність (на 100 г):</strong> білки — 9 г, жири — 14 г, вуглеводи — 25 г <br>
+					<strong>Вага порції:</strong> 200 г (6 шт.) <br>
+					Ароматний гарячий рол з копченим вугрем під вишуканою сирною "шапочкою", запечений до золотої скоринки, прикрашений соусом унагі та кунжутом.
+				</p>
+				<button type="button" class="btn btn-primary btn-block" onclick="window.location.href='../index.html';">
+					Перейти до оформлення замовлення
+				</button>
+			</div>
+		</div>
+	</div>
+<div class="container">
+	<div class="product-info-details py-4">
+		<h3>Детальний опис та інгредієнти</h3>
+		<p class="product-info-text">
+			«Запечений ролл з вугрем» — справжня знахідка для любителів насичених теплих страв. Ніжне м'ясо копченого вугра має виражений солодкуватий смак, який розкривається ще яскравіше завдяки запіканню під спеціальним спайсі-сирним соусом. Запечена скоринка зберігає всі соки всередині ролу, роблячи його надзвичайно соковитим.
+		</p>
+		<h4 class="mt-4">Склад:</h4>
+		<ul>
+			<li>Спеціальний рис для суші</li>
+			<li>Копчений річковий вугор преміум якості</li>
+			<li>Ніжний вершковий сир</li>
+			<li>Спеціальний соус для запікання (майонез кюпі, сир моцарела, легкі спайсі спеції)</li>
+			<li>Традиційний густий соус Унагі</li>
+			<li>Насіння обсмаженого кунжуту</li>
+			<li>Водорості норі</li>
+		</ul>
+		<h4 class="mt-4">Рекомендації до вживання:</h4>
+		<p class="product-info-text">
+			Бажано вживати рол теплим. Він чудово поєднується зі світлим соєвим соусом та імбиром. Завдяки запеченій структурі, цей рол є ситним варіантом як для обіду, так і для вечері.
+		</p>
+		<h4 class="mt-4">Умови зберігання:</h4>
+		<p class="product-info-text">
+			Запечені роли мають обмежений термін придатності. Рекомендується зберігати при температурі від +2°C до +6°C та вжити протягом 4 годин з моменту запікання.
+		</p>
+	</div>
+</div>
+	<!-- Футер сайту -->
+	<footer class="site-footer">
+		<div class="container text-center">
+			<p class="mb-2"><strong>Доставка їжі «Особисто»</strong></p>
+			<p class="mb-2 text-muted">
+				Телефон: <a href="tel:+380671058837">+38 067 105 88 37</a> &bull; 
+				Email: <a href="mailto:ladikovmax@gmail.com">ladikovmax@gmail.com</a>
+			</p>
+			<p class="mb-2 text-muted">Розрахунково-графічна робота студента 101ТК групи Ладікова Максима</p>
+			<p class="mb-0 text-muted small">&copy; 2026 Особисто. Всі права захищені.</p>
+		</div>
+	</footer>
+	<script>
+		document.addEventListener('DOMContentLoaded', function () {
+			const imageContainer = document.querySelector('.image-container');
+			const textContainer = document.querySelector('.card.mb-3');
+		//Встановлюємо висоту контейнера текста як у зображення
+			const imageHeight = imageContainer.offsetHeight;
+			textContainer.style.height = `${imageHeight}px`;
+		});
+				</script>
+</body>
+</html>
