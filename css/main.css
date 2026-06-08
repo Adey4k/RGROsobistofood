@@ -145,7 +145,9 @@ header {
     text-decoration: none;
 }
 
-.cart-item {}
+.cart-item {
+    overflow: hidden;
+}
 
 .cart-item__top {
     display: flex;
@@ -153,6 +155,7 @@ header {
     padding-bottom: 15px;
     border-bottom: 1px solid #dee2e6;
     margin-bottom: 15px;
+    overflow: hidden;
 }
 
 .cart-item__img {}
@@ -165,6 +168,9 @@ header {
 .cart-item__desc {
     padding-top: 15px;
     padding-left: 15px;
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
 }
 
 .cart-item__title {
@@ -173,6 +179,8 @@ header {
     line-height: 1.2;
     font-weight: 600;
     margin-bottom: 5px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .cart-item__weight {
@@ -186,6 +194,8 @@ header {
     display: flex;
     justify-content: flex-start;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 5px;
 }
 
 .cart-item__details .price__currency {
@@ -196,6 +206,8 @@ header {
 .cart-total {
     font-size: 18px;
     font-weight: 500;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
 }
 
 .delivery-cost {}

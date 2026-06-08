@@ -61,6 +61,14 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 
+    // ===== Валідація додаткової інформації (макс 300 символів) =====
+    const notesInput = document.getElementById('order-notes');
+    notesInput.addEventListener('input', function () {
+        if (this.value.length > 300) {
+            this.value = this.value.slice(0, 300);
+        }
+    });
+
     // ===== Валідація телефону =====
     const phoneInput = document.getElementById('customer-phone');
     const PREFIX = '+38';
