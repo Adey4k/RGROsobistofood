@@ -61,6 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
         orderForm.reset(); 
         modal.style.display = 'none'; 
         cartWrapper.innerHTML = '';
+        localStorage.removeItem('osobysto_cart');
         ToogleCartStatus();
         calcCartPrice();
     });

@@ -1,4 +1,83 @@
 const cartWrapper = document.querySelector('.cart-wrapper');
+const CART_STORAGE_KEY = 'osobysto_cart';
+
+function saveCartState() {
+    const cartItems = [];
+    $('.cart-wrapper .cart-item').each(function () {
+        const $item = $(this);
+        const counter = parseInt($item.find('[data-counter]').val() || $item.find('[data-counter]').text(), 10) || 1;
+        cartItems.push({
+            id: $item.data('id'),
+            counter: counter
+        });
+    });
+    localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cartItems));
+}
+
+function clearCartState() {
+    localStorage.removeItem(CART_STORAGE_KEY);
+}
+
+function buildCartItemHTML(productInfo) {
+    return `
+        <div class="cart-item" data-id="${productInfo.id}">
+            <div class="cart-item__top">
+                <div class="cart-item__img">
+                    <img src="${productInfo.imgSrc}" alt="${productInfo.title}">
+                </div>
+                <div class="cart-item__desc">
+                    <div class="cart-item__title">${productInfo.title}</div>
+                    <div class="cart-item__weight">${productInfo.itemsInBox} / ${productInfo.weight}</div>
+                    <div class="cart-item__details">
+                        <div class="items items--small counter-wrapper">
+                            <div class="items__control" data-action="minus">-</div>
+                            <input type="text" inputmode="numeric" maxlength="3" class="items__current" data-counter value="${productInfo.counter}">
+                            <div class="items__control" data-action="plus">+</div>
+                        </div>
+                        <div class="price">
+                            <div class="price__currency">${productInfo.price}</div>
+                        </div>
+                        <button class="btn btn-danger btn-sm remove-item">×</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function loadCartState() {
+    const savedCart = localStorage.getItem(CART_STORAGE_KEY);
+    if (!savedCart) return;
+
+    let cartItems = [];
+    try {
+        cartItems = JSON.parse(savedCart);
+    } catch (e) {
+        console.warn('Не вдалося прочитати стан корзини:', e);
+        return;
+    }
+
+    cartItems.forEach(item => {
+        const card = document.querySelector(`.card[data-id="${item.id}"]`);
+        if (!card) return;
+
+        const productInfo = {
+            id: item.id,
+            imgSrc: card.querySelector('.product-img').getAttribute('src'),
+            title: card.querySelector('.item-title').innerText,
+            itemsInBox: card.querySelector('[data-items-in-box]').innerText,
+            weight: card.querySelector('.price__weight').innerText,
+            price: card.querySelector('.price__currency').innerText,
+            counter: item.counter || 1
+        };
+
+        cartWrapper.insertAdjacentHTML('beforeend', buildCartItemHTML(productInfo));
+        updateCardCounter(item.id, productInfo.counter);
+    });
+
+    ToogleCartStatus();
+    calcCartPrice();
+}
 
 // Допоміжна функція для отримання значення лічильника (input або div)
 function getCounterValue(el) {
@@ -70,8 +149,10 @@ window.addEventListener('click', function (event) {
             updateCardCounter(productInfo.id, 1); // Ставимо значення 1 для нових товарів
         }
         calcCartPrice()
+        saveCartState();
     }
     ToogleCartStatus();
+    saveCartState();
 });
 
 // Оновлення статусу корзини
@@ -107,6 +188,7 @@ window.addEventListener('click', function (event) {
             updateCardCounter(productId, 1);
             calcCartPrice();
             ToogleCartStatus();
+            saveCartState();
             return;
         } else {
             // Мінус на картці товару при лічильнику 1 — видалити з кошика
@@ -138,6 +220,7 @@ window.addEventListener('click', function (event) {
     }
     calcCartPrice();
     ToogleCartStatus();
+    saveCartState();
 });
 
 // Обробка ручного введення кількості
@@ -163,6 +246,7 @@ window.addEventListener('input', function (event) {
     }
     calcCartPrice();
     ToogleCartStatus();
+    saveCartState();
 });
 
 // При втраті фокуса — валідуємо мінімум 1
@@ -198,6 +282,7 @@ function updateCartCounter(productId, newCounterValue) {
     if (cartItem) {
         const cartCounter = cartItem.querySelector('[data-counter]');
         setCounterValue(cartCounter, newCounterValue);
+        saveCartState();
     } else if (newCounterValue > 0) {
         const card = document.querySelector(`.card[data-id="${productId}"]`);
         if (card) {
@@ -236,6 +321,7 @@ function updateCartCounter(productId, newCounterValue) {
                 </div>
             `;
             cartWrapper.insertAdjacentHTML('beforeend', cartItemHTML);
+            saveCartState();
         }
     }
     ToogleCartStatus();
@@ -284,5 +370,8 @@ cartWrapper.addEventListener('click', function (event) {
         updateCardCounter(productId, 1);
         ToogleCartStatus();
         calcCartPrice();
+        saveCartState();
     }
 });
+
+loadCartState();
