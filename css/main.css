@@ -126,6 +126,19 @@ header {
     border-color: #eb5a1e;
 }
 
+.navbar-brand {
+    font-family: 'Merriweather', serif;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #212529;
+}
+
+.navbar-brand:hover {
+    color: #eb5a1e;
+    text-decoration: none;
+}
+
 .cart-item {
 
 }
@@ -197,6 +210,29 @@ header {
 
 .rouble {
 	color: #EB5A1E;
+}
+
+.info-section {
+	background: #ffffff;
+	border: 1px solid #e9ecef;
+	border-radius: 12px;
+	padding: 22px;
+	box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+
+.info-section h3 {
+	font-size: 1.5rem;
+	margin-bottom: 1rem;
+}
+
+.info-section p,
+.info-section li {
+	font-size: 1rem;
+	line-height: 1.75;
+}
+
+.info-section li strong {
+	color: #212529;
 }
 
 .none {
