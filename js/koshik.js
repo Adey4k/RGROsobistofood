@@ -158,14 +158,14 @@ window.addEventListener('click', function (event) {
 // Оновлення статусу корзини
 function ToogleCartStatus() {
     const cartEmptyBadge = document.querySelector('[data-cart-empty]');
-    const orderButton = document.querySelector('#order-form .btn-primary'); 
+    const orderButton = document.querySelector('#order-form .btn-primary');
 
     if (cartWrapper.children.length > 0) {
         cartEmptyBadge.classList.add('none');
-        orderButton.disabled = false; 
+        orderButton.disabled = false;
     } else {
         cartEmptyBadge.classList.remove('none');
-        orderButton.disabled = true; 
+        orderButton.disabled = true;
     }
 }
 
