@@ -547,3 +547,29 @@ header {
     opacity: 0.8;
     text-decoration: underline;
 }
+
+/* ===== Ефект підсвічування картки товару при наведенні на зображення ===== */
+.product-col .card {
+    overflow: hidden; /* Щоб картинка при збільшенні не виходила за межі картки */
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                border-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+                background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+/* Коли курсор наводиться на посилання з картинкою або саму картинку */
+.product-col .card:has(a:hover) {
+    transform: translateY(-4px);
+    border-color: rgba(120, 194, 173, 0.6); /* М'ятний колір як на кнопках */
+    box-shadow: 0 10px 25px rgba(120, 194, 173, 0.25), 0 4px 10px rgba(0, 0, 0, 0.05);
+    background-color: #f8fdfc; /* Легке м'ятне підсвічування */
+}
+
+/* Також додамо легкий ефект збільшення самої картинки */
+.product-col .card .product-img {
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.product-col .card:has(a:hover) .product-img {
+    transform: scale(1.03);
+}
