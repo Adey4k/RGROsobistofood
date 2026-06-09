@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Пепероні — Особисто</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/info.css">
+</head>
+<body>
+	<div class="container">
+		<header class="d-flex flex-wrap  py-3 mb-4 border-bottom">
+		  <a class="d-flex mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+			<img src="../img/logo.png" alt="Логотип" width="40" height="40" class="me-2">
+			<span class="fs-3 navbar-brand">Особисто</span>
+		  </a>
+		  <ul class="nav nav-pills">
+			<li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page">Замовити</a></li>
+			<li class="nav-item"><a href="../info.html" class="nav-link">Про нас</a></li>
+		  </ul>
+		</header>
+	  </div>
+	<div class="container mb-5">
+		<div class="row">
+			<div class="image-container">
+				<img class="product-img-info" src="../img/pizza/peperoni-pizza.webp" alt="Зображення товару">
+			</div>
+			<div class="card mb-3">
+				<h1>Пепероні</h1>
+				<p class = "main-text-info">
+					<strong>Енергетична цінність (на 100 г):</strong> 310 ккал <br>
+					<strong>Харчова цінність (на 100 г):</strong> білки — 12.5 г, жири — 16 г, вуглеводи — 29 г <br>
+					<strong>Вага порції:</strong> 440 г (30 см.) <br>
+					Улюблена класика багатьох: гостренькі скибочки пікантної ковбаси пепероні, велика порція тягучого сиру моцарела та фірмовий томатний соус на хрусткій скоринці тонкого тіста.
+				</p>
+				<button type="button" class="btn btn-primary btn-block" onclick="window.location.href='../index.html';">
+					Перейти до оформлення замовлення
+				</button>
+			</div>
+		</div>
+	</div>
+<div class="container">
+	<div class="product-info-details py-4">
+		<h3>Детальний опис та інгредієнти</h3>
+		<p class="product-info-text">
+			Піца «Пепероні» — один із найпопулярніших видів піци у світі. Секрет її успіху полягає в простоті та ідеальному балансі інгредієнтів. Спеціальна гостра ковбаса пепероні при запіканні виділяє ароматну олію, яка просочує ніжний шар моцарели та фірмового томатного соусу, роблячи кожен шматочок неймовірно насиченим.
+		</p>
+		<h4 class="mt-4">Склад:</h4>
+		<ul>
+			<li>Фірмове тонке тісто, витримане протягом 24 годин</li>
+			<li>Фірмовий томатний соус зі стиглих італійських томатів та базиліку</li>
+			<li>Велика порція сиру моцарела преміум якості</li>
+			<li>Скибочки пікантної ковбаси пепероні (салямі)</li>
+			<li>Суміш італійських трав (орегано, базилік)</li>
+			<li>Оливкова олія Extra Virgin</li>
+		</ul>
+		<h4 class="mt-4">Рекомендації до вживання:</h4>
+		<p class="product-info-text">
+			Найкраще смакує гарячою та хрусткою. Пікантність пепероні чудово підкреслить прохолодне пиво, класична кока-кола чи свіжий томатний сік.
+		</p>
+		<h4 class="mt-4">Умови зберігання:</h4>
+		<p class="product-info-text">
+			Зберігати при температурі від +2°C до +6°C не більше 12 годин з моменту приготування. Перед вживанням обов'язково підігріти.
+		</p>
+	</div>
+</div>
+	<!-- Футер сайту -->
+	<footer class="site-footer">
+		<div class="container text-center">
+			<p class="mb-2"><strong>Доставка їжі «Особисто»</strong></p>
+			<p class="mb-2 text-muted">
+				Телефон: <a href="tel:+380671058837">+38 067 105 88 37</a> &bull; 
+				Email: <a href="mailto:ladikovmax@gmail.com">ladikovmax@gmail.com</a>
+			</p>
+			<p class="mb-2 text-muted">Розрахунково-графічна робота студента 101ТК групи Ладікова Максима</p>
+			<p class="mb-0 text-muted small">&copy; 2026 Особисто. Всі права захищені.</p>
+		</div>
+	</footer>
+		<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const imageContainer = document.querySelector('.image-container');
+    const textContainer = document.querySelector('.card.mb-3');
+	//Встановлюємо висоту контейнера текста як у зображення
+    const imageHeight = imageContainer.offsetHeight;
+    textContainer.style.height = `${imageHeight}px`;
+});
+		</script>
+</body>
+</html>

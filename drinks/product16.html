@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<title>Mirinda — Особисто</title>
+	<link rel="stylesheet" href="../css/bootstrap.css">
+	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../css/info.css">
+</head>
+<body>
+	<div class="container">
+		<header class="d-flex flex-wrap  py-3 mb-4 border-bottom">
+		  <a class="d-flex mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+			<img src="../img/logo.png" alt="Логотип" width="40" height="40" class="me-2">
+			<span class="fs-3 navbar-brand">Особисто</span>
+		  </a>
+		  <ul class="nav nav-pills">
+			<li class="nav-item"><a href="../index.html" class="nav-link active" aria-current="page">Замовити</a></li>
+			<li class="nav-item"><a href="../info.html" class="nav-link">Про нас</a></li>
+		  </ul>
+		</header>
+	  </div>
+	<div class="container mb-5">
+		<div class="row">
+			<div class="image-container">
+				<img class="product-img-info" src="../img/drinks/mirinda.jpg" alt="Зображення товару">
+			</div>
+			<div class="card mb-3">
+				<h1>Mirinda</h1>
+				<p class = "main-text-info">
+					<strong>Енергетична цінність (на 100 г):</strong> 49 ккал <br>
+					<strong>Харчова цінність (на 100 г):</strong> білки — 0 г, жири — 0 г, вуглеводи — 12.1 г <br>
+					<strong>Об'єм порції:</strong> 500 мл (0.5 л.) <br>
+					Яскравий освіжаючий газований напій з вибуховим соковитим смаком стиглого апельсина. Забезпечує чудовий настрій та чудово підходить до страв японської та італійської кухні.
+				</p>
+				<button type="button" class="btn btn-primary btn-block" onclick="window.location.href='../index.html';">
+					Перейти до оформлення замовлення
+				</button>
+			</div>
+		</div>
+	</div>
+<div class="container">
+	<div class="product-info-details py-4">
+		<h3>Детальний опис та інгредієнти</h3>
+		<p class="product-info-text">
+			Mirinda — це освіжаючий сильногазований напій з інтенсивним апельсиновим смаком та приємною кислинкою. Його яскравий колір та насичений цитрусовий аромат роблять кожен ковток справжнім святом. Дуже добре освіжає під час їжі та підкреслює смак піци та ситних суші-ролів.
+		</p>
+		<h4 class="mt-4">Склад:</h4>
+		<ul>
+			<li>Очищена газована вода</li>
+			<li>Цукровий сироп або цукор</li>
+			<li>Регулятор кислотності (лимонна кислота)</li>
+			<li>Консерванти</li>
+			<li>Натуральний ароматизатор апельсина</li>
+			<li>Харчові барвники</li>
+		</ul>
+		<h4 class="mt-4">Рекомендації до вживання:</h4>
+		<p class="product-info-text">
+			Найкраще вживати сильно охолодженим. Ідеально пити прямо з пляшки або налити у склянку з великою кількістю льоду.
+		</p>
+		<h4 class="mt-4">Умови зберігання:</h4>
+		<p class="product-info-text">
+			Зберігати в сухому прохолодному місці при температурі від +5°C до +25°C. Берегти від прямого сонячного світла. Після відкриття вжити протягом доби.
+		</p>
+	</div>
+</div>
+	<!-- Футер сайту -->
+	<footer class="site-footer">
+		<div class="container text-center">
+			<p class="mb-2"><strong>Доставка їжі «Особисто»</strong></p>
+			<p class="mb-2 text-muted">
+				Телефон: <a href="tel:+380671058837">+38 067 105 88 37</a> &bull; 
+				Email: <a href="mailto:ladikovmax@gmail.com">ladikovmax@gmail.com</a>
+			</p>
+			<p class="mb-2 text-muted">Розрахунково-графічна робота студента 101ТК групи Ладікова Максима</p>
+			<p class="mb-0 text-muted small">&copy; 2026 Особисто. Всі права захищені.</p>
+		</div>
+	</footer>
+		<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const imageContainer = document.querySelector('.image-container');
+    const textContainer = document.querySelector('.card.mb-3');
+    const imageHeight = imageContainer.offsetHeight;
+    textContainer.style.height = `${imageHeight}px`;
+});
+		</script>
+</body>
+</html>
