@@ -462,6 +462,71 @@ header {
     user-select: none;
 }
 
+/* ===== Пагінація ===== */
+.pagination-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+    padding: 10px 0;
+    flex-wrap: wrap;
+}
+
+.pagination-wrapper.hidden {
+    display: none;
+}
+
+.page-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 38px;
+    height: 38px;
+    padding: 0 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    background: #fff;
+    color: #555;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.page-btn:hover:not(.active):not(:disabled) {
+    border-color: #eb5a1e;
+    color: #eb5a1e;
+    background: #fff5f0;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(235, 90, 30, 0.15);
+}
+
+.page-btn.active {
+    background: #eb5a1e;
+    border-color: #eb5a1e;
+    color: #fff;
+    box-shadow: 0 3px 12px rgba(235, 90, 30, 0.35);
+    cursor: default;
+}
+
+.page-btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.page-btn.arrow-btn {
+    font-size: 1.1rem;
+    padding: 0 8px;
+}
+
+.page-info {
+    color: #999;
+    font-size: 0.85rem;
+    margin: 0 6px;
+}
+
 /* ===== Простий футер ===== */
 .site-footer {
     padding: 30px 0;

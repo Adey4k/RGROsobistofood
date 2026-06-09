@@ -503,6 +503,7 @@
 						😔 За вашим запитом нічого не знайдено
 					</div>
 				</div>
+				<div class="pagination-wrapper" id="pagination"></div>
 			</div>
 			<div class="col-md-4">
 
@@ -594,11 +595,14 @@
 			const noResults = document.getElementById('search-no-results');
 			const catTabs = document.querySelectorAll('.cat-tab');
 			const productCols = document.querySelectorAll('.product-col');
+			const paginationEl = document.getElementById('pagination');
+			const ITEMS_PER_PAGE = 4;
 			let activeCategory = 'all';
-			function applyFilters() {
+			let currentPage = 1;
+
+			function getFilteredProducts() {
 				const query = searchInput.value.trim().toLowerCase();
-				clearBtn.style.display = query ? 'block' : 'none';
-				let visibleCount = 0;
+				const filtered = [];
 				productCols.forEach(function (col) {
 					const cat = col.getAttribute('data-category');
 					const titleEl = col.querySelector('.item-title');
@@ -606,30 +610,106 @@
 					const title = titleEl.textContent.toLowerCase();
 					const catMatch = (activeCategory === 'all') || (cat === activeCategory);
 					const searchMatch = !query || title.includes(query);
-					const visible = catMatch && searchMatch;
-					col.style.display = visible ? '' : 'none';
-					if (visible) visibleCount++;
+					if (catMatch && searchMatch) filtered.push(col);
 				});
-				noResults.style.display = (visibleCount === 0) ? 'block' : 'none';
+				return filtered;
 			}
 
-			// Пошук
-			searchInput.addEventListener('input', applyFilters);
+			function applyFilters() {
+				const query = searchInput.value.trim().toLowerCase();
+				clearBtn.style.display = query ? 'block' : 'none';
+				const filtered = getFilteredProducts();
+				const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
+				if (currentPage > totalPages) currentPage = totalPages;
+				const startIdx = (currentPage - 1) * ITEMS_PER_PAGE;
+				const endIdx = startIdx + ITEMS_PER_PAGE;
+
+				// Сховати всі товари
+				productCols.forEach(function (col) { col.style.display = 'none'; });
+				// Показати тільки товари поточної сторінки
+				for (var i = startIdx; i < endIdx && i < filtered.length; i++) {
+					filtered[i].style.display = '';
+				}
+				noResults.style.display = (filtered.length === 0) ? 'block' : 'none';
+				renderPagination(totalPages, filtered.length);
+			}
+
+			function renderPagination(totalPages, totalItems) {
+				paginationEl.innerHTML = '';
+				if (totalPages <= 1) {
+					paginationEl.classList.add('hidden');
+					return;
+				}
+				paginationEl.classList.remove('hidden');
+
+				// Кнопка «Назад»
+				var prevBtn = document.createElement('button');
+				prevBtn.className = 'page-btn arrow-btn';
+				prevBtn.innerHTML = '&#8249;';
+				prevBtn.disabled = (currentPage === 1);
+				prevBtn.addEventListener('click', function () {
+					if (currentPage > 1) { currentPage--; applyFilters(); scrollToProducts(); }
+				});
+				paginationEl.appendChild(prevBtn);
+
+				// Номери сторінок
+				for (var p = 1; p <= totalPages; p++) {
+					(function (pageNum) {
+						var btn = document.createElement('button');
+						btn.className = 'page-btn' + (pageNum === currentPage ? ' active' : '');
+						btn.textContent = pageNum;
+						btn.addEventListener('click', function () {
+							currentPage = pageNum;
+							applyFilters();
+							scrollToProducts();
+						});
+						paginationEl.appendChild(btn);
+					})(p);
+				}
+
+				// Кнопка «Вперед»
+				var nextBtn = document.createElement('button');
+				nextBtn.className = 'page-btn arrow-btn';
+				nextBtn.innerHTML = '&#8250;';
+				nextBtn.disabled = (currentPage === totalPages);
+				nextBtn.addEventListener('click', function () {
+					if (currentPage < totalPages) { currentPage++; applyFilters(); scrollToProducts(); }
+				});
+				paginationEl.appendChild(nextBtn);
+			}
+
+			function scrollToProducts() {
+				var productsRow = document.getElementById('products-row');
+				if (productsRow) {
+					productsRow.scrollIntoView({ behavior: 'smooth', block: 'start' });
+				}
+			}
+
+			// Пошук — скидаємо на 1 сторінку
+			searchInput.addEventListener('input', function () {
+				currentPage = 1;
+				applyFilters();
+			});
 			clearBtn.addEventListener('click', function () {
 				searchInput.value = '';
 				searchInput.focus();
+				currentPage = 1;
 				applyFilters();
 			});
 
-			// Категорії
+			// Категорії — скидаємо на 1 сторінку
 			catTabs.forEach(function (tab) {
 				tab.addEventListener('click', function () {
 					catTabs.forEach(function (t) { t.classList.remove('active'); });
 					tab.classList.add('active');
 					activeCategory = tab.getAttribute('data-cat');
+					currentPage = 1;
 					applyFilters();
 				});
 			});
+
+			// Ініціалізація
+			applyFilters();
 		})();
 	</script>
 </body>
